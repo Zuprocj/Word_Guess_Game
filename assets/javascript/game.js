@@ -1,9 +1,9 @@
 //global varaibles
 
-var wordOptions = ["waffles","panacakes","muffin","coffee","newspaper","banana","eggs","french toast"];
+var wordOptions = ["waffles", "panacakes", "muffin", "coffee", "newspaper", "banana", "eggs", "french toast"];
 var selectedWord= "";
-var lettersInWord = [];       
-var numBlanks = 0;                
+var lettersInWord = []; 
+var numBlanks = 0;        
 var blanksAndLetters = [];
 var wrongLetters = [];
 
@@ -18,7 +18,6 @@ function startGame () {
     lettersInWord = selectedWord.split("");
     numBlanks = lettersInWord.length;
 
-
     // reset guesses left
     guessesLeft = 10;
     wrongLetters = [];
@@ -28,51 +27,50 @@ function startGame () {
         blanksAndLetters.push("_");
     }
 
-    document.getElementById("currentWord").innerHTML = blanksAndLetters.join(" ");
+    document.getElementById("selectedWord").innerHTML = blanksAndLetters.join(" ");
     document.getElementById("guessesLeft").innerHTML = guessesLeft;
     document.getElementById("winCounter").innerHTML = winCount;
     document.getElementById("lossCounter").innerHTML = lossCount;
 
-    // console.log(selectedWord);
-    // console.log(lettersInWord);
-    // console.log(numBlanks);
-    // console.log(blanksAndLetters);
+    console.log(selectedWord);
+    console.log(lettersInWord);
+    console.log(numBlanks);
+    console.log(blanksAndLetters);
 }
 
 function checkLetters(letter) {
 
-     var isLetterInWord = false;
+    var isLetterInWord = false;
     for (var i = 0; i < numBlanks; i++) {
         if (selectedWord[i] == letter) {
-            isLetterInWord == true;
+            isLetterInWord = true;
             }
         }
 
-    if(lettersInWord) {
+    if(isLetterInWord) {
         for (var i=0; i < numBlanks; i++) {
             if(selectedWord[i] == letter) {
                 blanksAndLetters[i] = letter;
-
             }
         }
     }
     else {
         wrongLetters.push(letter);
-        guessesLeft--
+        guessesLeft--;
     }
 
-    // console.log(blanksAndLetters);
+    console.log(blanksAndLetters);
 }   
 
 function roundComplete(){
     document.getElementById("guessesLeft").innerHTML = guessesLeft;
-    document.getElementById("currentWord").innerHTML = blanksAndLetters.join(" ");
+    document.getElementById("selectedWord").innerHTML = blanksAndLetters.join(" ");
     document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
 
-    if (lettersInWord.toString() == blanksAndLetters()) {
+    if (lettersInWord.toString() == blanksAndLetters.toString()) {
         winCount++;
-        alert("You Win!!")
-        document.getElementById("wincounter").innerHTML = winCount;
+        alert("You Win!!");
+        document.getElementById("winCounter").innerHTML = winCount;
         startGame();
     }
 
@@ -87,9 +85,11 @@ function roundComplete(){
 
 startGame();
 
-document.onkeydown = function(event) {
-    var lettersGuessed = String.fromCharCode(event.keycode).toLowerCase();
-    checkLetters(lettersGuessed);
+document.onkeyup = function(event) {
+    var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+    checkLetters(letterGuessed);
+    roundComplete();
+
+    console.log(letterGuessed);
 
 }
-
