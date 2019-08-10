@@ -1,6 +1,6 @@
 //global varaibles
 
-var wordOptions = ["waffles", "panacakes", "muffin", "coffee", "newspaper", "banana", "eggs", "french toast"];
+var wordOptions = ["waffles", "panacakes", "muffin", "coffee", "eggs", "french toast", "omelette du fromage", "oatmeal", "fresh fruit", "bacon"];
 var selectedWord= "";
 var lettersInWord = []; 
 var numBlanks = 0;        

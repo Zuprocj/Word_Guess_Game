@@ -39,4 +39,5 @@ body {
 .jumbotron {
     text-align: left;
     background:hsl(300,100%,25%,0.3);
+    font-family: 'Righteous', cursive;
 }
