@@ -32,6 +32,9 @@ function startGame () {
     document.getElementById("winCounter").innerHTML = winCount;
     document.getElementById("lossCounter").innerHTML = lossCount;
 
+
+    
+
     console.log(selectedWord);
     console.log(lettersInWord);
     console.log(numBlanks);
@@ -66,18 +69,22 @@ function roundComplete(){
     document.getElementById("guessesLeft").innerHTML = guessesLeft;
     document.getElementById("selectedWord").innerHTML = blanksAndLetters.join(" ");
     document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
+    document.getElementById("gameover-image").style.cssText = "display: none";
+    document.getElementById("youwin-image").style.cssText = "display: none";
 
     if (lettersInWord.toString() == blanksAndLetters.toString()) {
         winCount++;
-        alert("You Win!!");
+        alert("You Win!! The word was " + selectedWord);
         document.getElementById("winCounter").innerHTML = winCount;
+        document.getElementById("youwin-image").style.cssText = "display: block";
         startGame();
     }
 
     else if (guessesLeft == 0) {
         lossCount++;
-        alert("You lose!");
+        alert("You lose! The word was " + selectedWord);
         document.getElementById("lossCounter").innerHTML = lossCount;
+        document.getElementById("gameover-image").style.cssText = "display: block";
         startGame();
     }
 }

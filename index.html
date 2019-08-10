@@ -8,6 +8,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <title>Hangman!</title>
+    <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
@@ -15,52 +16,48 @@
     <div class="container">
         <div class="jumbotron">
             <h1>Hangman Game</h1> 
-            <p>breakfast version</p>
+            <h3>breakfast version</h3>
+            <p id="instructions">Press any key to get started!</p>
         </div>
     </div>
 
-    <!-- <div class="row">
-        <div class="col-md-6 gameplay-column">
-            <img id="youwin-image" src="assets/images/youwin.png" alt="Winning Image" />
-            <img id="gameover-image" src="assets/images/gameoveradj.png" alt="Game Over Image" />
-            <h2 id="pressKeyTryAgain">Press Any Key to Try Again!</h2>
-            <img id="hangmanImage" src="" alt="" />
+    <div class="row">
+        <div class="col-sm-6 picture-column">
+            <img id="youwin-image" src="assets/images/youwin.png"  alt="Winning Image"/>
+            <img id="gameover-image" src="assets/images/gameoveradj.png"  alt="Game Over Image"/>
         </div>
 
-        <div class="col-md-6 gameplay-column"> -->
-                
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>Word to guess</h4>
-        </div>
+    <div class="col-sm-6 gameplay-column">
+        <div class="panel panel-default">
             <div class="panel-body">
+                <h4>Word to guess</h4>
                 <h5 id=selectedWord></h5>
             </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-            Wrong letters <span id="wrongLetters"></span>
         </div>
-    </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                Wrong letters <span id="wrongLetters"></span>
+            </div>
+        </div>
             
-    <div class="panel panel-default">
-        <div class="panel-body">
-             Guesses left <span id="guessesLeft"></span>
-        </div>
-    </div> 
+        <div class="panel panel-default">
+            <div class="panel-body">
+                Guesses left <span id="guessesLeft"></span>
+            </div>
+        </div> 
                 
-    <div class="panel panel-default">
-        <div class="panel-body">
-            Wins <span id="winCounter"></span>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                Wins <span id="winCounter"></span>
+            </div>
         </div>
-    </div>
 
-    <div class="panel panel-default">
-        <div class="panel-body">
-            Loses <span id="lossCounter"></span>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                Loses <span id="lossCounter"></span>
+            </div>
         </div>
-    </div>
                  
     <script src="assets/javascript/game.js"></script>
 </body>
